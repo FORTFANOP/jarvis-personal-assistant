@@ -10,13 +10,14 @@ import psutil # pip install psutil      Used for getting data such as RAM, CPU s
 import random
 
 
-MASTER = "Joel"
-ASSISSTANTNAME = "Dalton"
+MASTER = "YOUR_NAME_HERE"
+ASSISSTANTNAME = "JARVIS" # Or anything of your wish
 
 
+# Starting the pyttsx3 module
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[0].id) # To change to female voice, run this instead:   engine.setProperty('voice', voices[1].id)
 
 
 def speak(text):
@@ -58,7 +59,6 @@ def receiveCommand():
         return query
 
     except Exception as e:
-        # print(e)
         print("Say that again, please")
         speak("Could you please say that again " + MASTER + "?")
         return "None"
@@ -71,23 +71,25 @@ def sendEmail(to, content):
     server.ehlo()
     server.starttls()
     to = str(to) + "@gmail.com"
-    server.login('sherlockcodingtest@gmail.com', 'fortfanop')
-    server.sendmail("sherlockcodingtest@gmail.com", to, content)
+    server.login('your-gmail-id@gmail.com', 'your-password')
+    server.sendmail("your-gmail-id@gmail.com", to, content)
     server.close()
 
 #Actual Code begins...
 if __name__ == "__main__":
     print("Initializing " + ASSISSTANTNAME + "..." + " Version 2.19")
     speak("Initializing " + ASSISSTANTNAME + "..." + " Version 2.19")
-    satellite_no = random.randint(1, 2000)
+    
+    # Giving that cool effect
+    satellite_no = random.randint(1, 2000) # Choosing a random number
     print("Connecting to secure satellite no.", str(satellite_no))
     speak("Establishing secure connection with satellite number" + str(satellite_no))
     print("Loading datasets...")
     speak("Loading datasets...")
-    speak("Running through start-up process...")
+    speak("Running through start-up process...") # Sounds cool when you run it, right?
     wishMe()
-    print("I am " + ASSISSTANTNAME + " 2.1.6. How may I help you " + MASTER + "?")
-    speak("I am " + ASSISSTANTNAME + " 2 point 1 6. How may I help you " + MASTER + "?")
+    print("I am " + ASSISSTANTNAME + " 2.1.9. How may I help you " + MASTER + "?")
+    speak("I am " + ASSISSTANTNAME + " 2 point 1 9. How may I help you " + MASTER + "?")
 
     while True:
         query = receiveCommand()
