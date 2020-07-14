@@ -136,7 +136,7 @@ if __name__ == "__main__":
             cpu_speed = psutil.cpu_percent()
             ram = psutil.virtual_memory()[2]
             print("Device running at ", str(cpu_speed), " percent cpu speed and ", ram, " percent RAM.")
-            analysis = "Device is running at", str(int(cpu_speed)), "percent cpu speed and consuming", str(ram), "percent of RAM.", str(100.00 - int(ram)), "percentage of RAM available out of the total 4 gigabytes of RAM"
+            analysis = "Device is running at", str(int(cpu_speed)), "percent cpu speed and consuming", str(ram), "percent of RAM.", str(100.00 - int(ram)), "percentage of RAM available out of the total 4 gigabytes of RAM" # Replace 4 GB with the GB of RAM you have
             speak(analysis)
         
         elif 'cpu speed' in query.lower() or 'the speed' in query.lower():
@@ -158,7 +158,7 @@ if __name__ == "__main__":
                 speak("Whom do you want to send this email to?")
                 to = receiveCommand()
                 receiverEmail = re.sub('[,!;\'+" "]', '', to)
-                speak("Do you confirm this email address Joel?")
+                speak("Do you confirm this email address" + MASTER + "?")
                 print("Do you confirm this email address: ", receiverEmail.lower())
                 emailAddressConfirmation = receiveCommand()
                 if 'yes' in emailAddressConfirmation:
